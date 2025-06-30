@@ -1,30 +1,42 @@
 package management;
 
+import datastructures.maps.CustomHashMap;
 import library.Member;
 import library.Transaction;
 
 public class MemberManager {
-    // TODO: Define a data structure that stores memberIds and their matching member objects
+    private CustomHashMap<String, Member> members;
 
     public MemberManager() {
-        // TODO: Initialize your data structure here
+        this.members = new CustomHashMap<>();
     }
 
     public void addMember(Member member) {
-        // TODO: Add member and their id to your data structure
+        if (member == null) {
+            throw new NullPointerException("Cannot add null member");
+        }
+        members.put(member.getMemberId(), member);
     }
 
     public Member getMember(String memberId) {
-        // TODO
-        return null;
+        if (memberId == null) {
+            throw new NullPointerException("Member ID cannot be null");
+        }
+        return members.get(memberId);
     }
 
     public void recordTransaction(String memberId, Transaction transaction) {
-        // TODO
+        Member member = getMember(memberId);
+        if (member != null) {
+            member.addTransaction(transaction);
+        }
     }
 
     public Transaction getLastTransaction(String memberId) {
-        // TODO
+        Member member = getMember(memberId);
+        if (member != null) {
+            return member.getLastTransaction();
+        }
         return null;
     }
 }
