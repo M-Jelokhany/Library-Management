@@ -7,3 +7,4 @@ public interface Collection<T> {
     boolean contains(Object o);
     boolean remove(Object o);
 }
+

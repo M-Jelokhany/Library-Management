@@ -53,7 +53,8 @@ public class CustomHashMap<K, V> implements Map<K, V> {
             }
             if (current.key.equals(key)) {
                 current.value = value;
-            } else {
+            }
+            else {
                 current.next = entry;
             }
         }
