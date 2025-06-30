@@ -46,6 +46,7 @@ public class Library {
         } else {
             System.out.println("The requested book with code " + isbn + " is not available in the library.");
             bookManager.addToWaitlist(isbn, memberId);
+
         }
     }
 
